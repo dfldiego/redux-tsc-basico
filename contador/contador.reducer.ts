@@ -1,5 +1,7 @@
-//reducer recibe: oldState y action
-function reducer(state = 10, action: Action) {
+import { Action } from '../ngrx-fake/ngrx';
+
+// aqui esta la logica del Reducer.
+export function contadorReducer(state = 10, action: Action) {
 
     switch (action.type) {
         case 'INCREMENTAR':
@@ -10,14 +12,10 @@ function reducer(state = 10, action: Action) {
             return state * action.payload;
         case 'DIVIDIR':
             return state / action.payload;
+        case 'RESET':
+            return state = 0;
         default:
             return state;
     }
 
 }
-
-// Usar el reducer
-console.log(reducer(10, incrementadorAction));
-console.log(reducer(10, decrementadorAction));
-console.log(reducer(10, multiplicarAction));
-console.log(reducer(10, dividirAction));
